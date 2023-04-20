@@ -1,0 +1,45 @@
+spring:
+#  profiles:
+#    active: ide
+  #    active: arm
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://192.168.12.148:5432/fbedi_db
+    username: epsap
+    password: 111111
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+#    properties:
+#      hibernate:
+#        format_sql: true
+#        Spring Boot 的健康檢查端點，看他是否有異常
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+#              為java綁定SQL中參數的log，設定為TRACE
+              BasicBinder: TRACE
+springdoc:
+  swagger-ui:
+#    表示預設不展開任何文檔節點，只顯示節點的標題
+    doc-expansion: none
+#    設置 Swagger UI 中的操作排序方式，按照字母順序排序
+    operations-sorter: alpha
+#    設置 Swagger UI 中的標籤排序方式，按照字母順序排序
+    tags-sorter: alpha
+
+custom:
+  avatar:
+    uri: https://random.dog/woof
