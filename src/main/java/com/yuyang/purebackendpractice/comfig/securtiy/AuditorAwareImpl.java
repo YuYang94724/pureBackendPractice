@@ -9,6 +9,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import java.util.Optional;
 
 public class AuditorAwareImpl implements AuditorAware<String> {
+    //用來讓memberPO可以獲取使用者`createdBy` 和 `lastModifiedBy` 字段的值
     @Override
     public Optional<String> getCurrentAuditor() {
         return Optional

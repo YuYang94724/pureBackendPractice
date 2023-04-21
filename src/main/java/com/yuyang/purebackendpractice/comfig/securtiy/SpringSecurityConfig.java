@@ -33,7 +33,7 @@ public class SpringSecurityConfig {
         this.springUserDetailService = springUserDetailService;
     }
 
-    //用於提供自動獲取使用者的資料方法
+    //用於提供自動獲取使用者的資料方法，使用在memberPOJO自動注入
     @Bean
     AuditorAware<String> auditorProvider() {
         return new AuditorAwareImpl();
@@ -43,7 +43,7 @@ public class SpringSecurityConfig {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-    //設置DAO驗證的使用者方法和加解密方法
+    //設置使用者方法和加解密方法的DAO驗證，會被注入到ProviderManager
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
@@ -73,7 +73,7 @@ public class SpringSecurityConfig {
 
         return httpSecurity.build();
     }
-
+    //獲取AuthenticationManager並放入spring控管
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
