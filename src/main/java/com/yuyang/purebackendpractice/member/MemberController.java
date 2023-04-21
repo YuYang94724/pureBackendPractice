@@ -33,19 +33,19 @@ public class MemberController {
         this.memberService = memberService;
     }
 
-    @Operation(summary = "登入")
-    @PostMapping("/members:login")
-    ResponseEntity<String> postMembersLogin(@RequestBody LoginRequestDto loginRequestDto) {
-        return memberService
-                .login(loginRequestDto.getUsername(), loginRequestDto.getPassword())
-                .map(v -> jwtTokenService.generate(v.getUsername(), 60L * 60L * 1000L, UUID.randomUUID().toString()))
-                .map(v -> ResponseEntity
-                        .status(HttpStatus.OK)
-                        .header(HttpHeaders.AUTHORIZATION, String.format("Bearer %s", v))
-                        .body(v)
-                )
-                .orElseThrow(() -> new RuntimeException("postMembersLogin Err"));
-    }
+//    @Operation(summary = "登入")
+//    @PostMapping("/members:login")
+//    ResponseEntity<String> postMembersLogin(@RequestBody LoginRequestDto loginRequestDto) {
+//        return memberService
+//                .login(loginRequestDto.getUsername(), loginRequestDto.getPassword())
+//                .map(v -> jwtTokenService.generate(v.getUsername(), 60L * 60L * 1000L, UUID.randomUUID().toString()))
+//                .map(v -> ResponseEntity
+//                        .status(HttpStatus.OK)
+//                        .header(HttpHeaders.AUTHORIZATION, String.format("Bearer %s", v))
+//                        .body(v)
+//                )
+//                .orElseThrow(() -> new RuntimeException("postMembersLogin Err"));
+//    }
 //
 //    @Operation(summary = "查詢用戶資料")
 //    @PreAuthorize("hasRole('USER')")
