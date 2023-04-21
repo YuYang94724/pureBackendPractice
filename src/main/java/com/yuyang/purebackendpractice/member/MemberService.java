@@ -30,26 +30,26 @@ import java.util.Optional;
 @Service
 public class MemberService {
 //
-//    private final PasswordEncoder passwordEncoder;
-//    private final AuthenticationManager authenticationManager;
-//    private final MemberRepository memberRepository;
+    private final PasswordEncoder passwordEncoder;
+    private final AuthenticationManager authenticationManager;
+    private final MemberRepository memberRepository;
 ////    private final WalletRepository walletRepository;
-//    private final MemberLoginRepository memberLoginRepository;
-//    private final StringRedisTemplate stringRedisTemplate;
-//    private final RestTemplate restTemplate;
-//
-//    @Value("${custom.avatar.uri}")
-//    private String avatarUri;
-////    WalletRepository walletRepository,
-//    public MemberService(PasswordEncoder passwordEncoder, AuthenticationManager authenticationManager, MemberRepository memberRepository,  MemberLoginRepository memberLoginRepository, StringRedisTemplate stringRedisTemplate, RestTemplate restTemplate) {
-//        this.passwordEncoder = passwordEncoder;
-//        this.authenticationManager = authenticationManager;
-//        this.memberRepository = memberRepository;
-////        this.walletRepository = walletRepository;
-//        this.memberLoginRepository = memberLoginRepository;
-//        this.stringRedisTemplate = stringRedisTemplate;
-//        this.restTemplate = restTemplate;
-//    }
+    private final MemberLoginRepository memberLoginRepository;
+    private final StringRedisTemplate stringRedisTemplate;
+    private final RestTemplate restTemplate;
+
+    @Value("${custom.avatar.uri}")
+    private String avatarUri;
+//    WalletRepository walletRepository,
+    public MemberService(PasswordEncoder passwordEncoder, AuthenticationManager authenticationManager, MemberRepository memberRepository,  MemberLoginRepository memberLoginRepository, StringRedisTemplate stringRedisTemplate, RestTemplate restTemplate) {
+        this.passwordEncoder = passwordEncoder;
+        this.authenticationManager = authenticationManager;
+        this.memberRepository = memberRepository;
+//        this.walletRepository = walletRepository;
+        this.memberLoginRepository = memberLoginRepository;
+        this.stringRedisTemplate = stringRedisTemplate;
+        this.restTemplate = restTemplate;
+    }
 //
 //    @Scheduled(cron = "*/10 * * * * *")
 //    public void fetchRandomAvatarLink() {
