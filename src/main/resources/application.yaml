@@ -4,11 +4,11 @@ spring:
   #    active: arm
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://192.168.12.148:5432/fbedi_db
+    url: jdbc:postgresql://Localhost:5432/Local_fbedi_db
     username: epsap
     password: 111111
   jpa:
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
+#    database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: none
   data:
@@ -20,8 +20,9 @@ spring:
   redis:
     host: localhost
     port: 6379
-    password: mypassword
+#    password: mypassword
     timeout: 5000
+    key-prefix: pureBackendPractice
 #    properties:
 #      hibernate:
 #        format_sql: true
