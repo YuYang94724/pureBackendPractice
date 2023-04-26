@@ -1,0 +1,54 @@
+
+### Send POST request with json body for login or sign up
+POST http://localhost:8080/api/v1.0/members:login
+Content-Type: application/json
+
+{
+  "username": "ste123@hahaha.tw",
+  "password": "abcd1234"
+}
+
+> {%
+    client.global.set("bearerToken", response.body.toString());
+%}
+
+### Send GET request
+GET http://localhost:8080/api/v1.0/members
+Authorization: Bearer {{bearerToken}}
+Content-Type: application/json
+
+
+### Send PATCH request
+
+PATCH http://localhost:8080/api/v1.0/members:modifyAbout
+Authorization: Bearer {{bearerToken}}
+Content-Type: application/json
+
+{
+  "about": "089457，爛東西"
+}
+
+
+### Send PATCH request
+
+PATCH http://localhost:8080/api/v1.0/members:modifyPassword
+Authorization: Bearer {{bearerToken}}
+Content-Type: application/json
+
+{
+  "oldPassword": "admin123",
+  "newPassword": "abcd1234"
+}
+
+
+### Send DELETE request
+
+DELETE http://localhost:8080/api/v1.0/members/{{username}}
+Authorization: Bearer {{bearerToken}}
+Content-Type: application/json
+
+### Send GET request
+
+GET http://localhost:8080/api/v1.0/members/records
+Authorization: Bearer {{bearerToken}}
+Content-Type: application/json
