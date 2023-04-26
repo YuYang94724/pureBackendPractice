@@ -1,5 +1,6 @@
 package com.yuyang.purebackendpractice.member.data.po;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.yuyang.purebackendpractice.member.data.enu.MemberLoginType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,18 +10,20 @@ import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.EntityListeners;
 import javax.persistence.Id;
+import java.time.LocalDate;
 
 @Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Document
+@EntityListeners(AuditingEntityListener.class)
 //這是用來給MongoDB使用的
 public class MemberLoginDocument {
 
@@ -36,12 +39,14 @@ public class MemberLoginDocument {
     @CreatedBy
     String createdBy;
 
+    @JsonFormat(pattern = "yyyyMMdd")
     @CreatedDate
-    Long createdDate;
+    LocalDate createdDate;
 
     @LastModifiedBy
     String lastModifiedBy;
 
+    @JsonFormat(pattern = "yyyyMMdd")
     @LastModifiedDate
-    Long lastModifiedDate;
+    LocalDate lastModifiedDate;
 }

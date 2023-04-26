@@ -1,5 +1,6 @@
 package com.yuyang.purebackendpractice.member.data.po;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.yuyang.purebackendpractice.member.data.enu.MemberRole;
 import com.yuyang.purebackendpractice.member.data.enu.MemberStatus;
 import lombok.AllArgsConstructor;
@@ -14,6 +15,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 
 @Data
 @Builder
@@ -25,34 +27,43 @@ import java.io.Serializable;
 public class MemberPO implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     Long id;
 
     @Column(name = "user_name", unique = true)
     String username;
-
+    @Column
     String password;
-
+    @Column
     String about;
-
+    @Column
     String avatarLink;
 
     // EnumType.STRING比較推薦使用， EnumType.ORDINAL是返回該index(從0開始)的值
     @Enumerated(value = EnumType.STRING)
+    @Column
     MemberRole role;
 
     @Enumerated(value = EnumType.STRING)
+    @Column
     MemberStatus status;
     //下方為使用配置的方式
     @CreatedBy
+    @Column
     String createdBy;
 
+    @JsonFormat(pattern = "yyyyMMdd")
     @CreatedDate
-    Long createdDate;
+    @Column
+    LocalDate createdDate;
 
     @LastModifiedBy
+    @Column
     String lastModifiedBy;
 
+    @JsonFormat(pattern = "yyyyMMdd")
     @LastModifiedDate
-    Long lastModifiedDate;
+    @Column
+    LocalDate lastModifiedDate;
 }
