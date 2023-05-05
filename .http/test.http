@@ -4,7 +4,7 @@ POST http://localhost:8080/api/v1.0/members:login
 Content-Type: application/json
 
 {
-  "username": "ste123@hahaha.tw",
+  "username": "admin123",
   "password": "abcd1234"
 }
 
@@ -52,3 +52,42 @@ Content-Type: application/json
 GET http://localhost:8080/api/v1.0/members/records
 Authorization: Bearer {{bearerToken}}
 Content-Type: application/json
+
+
+//錢包
+### Send GET request
+
+GET http://localhost:8080/api/v1.0/wallets
+Authorization: Bearer {{bearerToken}}
+Content-Type: application/json
+
+### Send deposit request
+
+POST http://localhost:8080/api/v1.0/wallets:deposit
+Authorization: Bearer {{bearerToken}}
+Content-Type: application/json
+
+{
+  "amount": "3333"
+}
+
+### Send withdraw request
+
+POST http://localhost:8080/api/v1.0/wallets:withdraw
+Authorization: Bearer {{bearerToken}}
+Content-Type: application/json
+
+{
+  "amount": "3333"
+}
+
+### Send transfer request
+
+POST http://localhost:8080/api/v1.0/wallets:transfer
+Authorization: Bearer {{bearerToken}}
+Content-Type: application/json
+
+{
+  "amount": "3333",
+  "toMemberId": "4"
+}

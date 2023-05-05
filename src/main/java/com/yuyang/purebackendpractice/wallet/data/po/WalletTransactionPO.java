@@ -1,10 +1,12 @@
 package com.yuyang.purebackendpractice.wallet.data.po;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.yuyang.purebackendpractice.wallet.data.enu.WalletOperationType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -14,6 +16,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Builder
 @Data
@@ -28,32 +31,35 @@ public class WalletTransactionPO implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column
     Long id;
-
+    @Column
     Long walletId;
-
+    @Column
     String operationUuid;
-
+    @Column
     @Enumerated(value = EnumType.STRING)
     WalletOperationType operationType;
-
+    @Column
     BigDecimal beforeBalance;
-
+    @Column
     BigDecimal amount;
-
+    @Column
     BigDecimal afterBalance;
-
+    @Column
     String memo;
-
+    @Column
     @CreatedBy
     String createdBy;
-
+    @JsonFormat(pattern = "yyyyMMdd")
+    @Column
     @CreatedDate
-    Long createdDate;
-
+    LocalDate createdDate;
+    @Column
     @LastModifiedBy
     String lastModifiedBy;
-
+    @JsonFormat(pattern = "yyyyMMdd")
+    @Column
     @LastModifiedDate
-    Long lastModifiedDate;
+    LocalDate lastModifiedDate;
 }
