@@ -1,5 +1,6 @@
-package com.yuyang.pureBackendPractice.wallet;
+package com.yuyang.pureBackendPractice.wallet.controller;
 
+import com.yuyang.pureBackendPractice.wallet.service.impl.WalletServiceImpl;
 import com.yuyang.pureBackendPractice.wallet.data.dto.WalletOpResponseDTO;
 import com.yuyang.pureBackendPractice.wallet.data.dto.WalletRequestDTO;
 import com.yuyang.pureBackendPractice.wallet.data.dto.WalletResponseDTO;
@@ -22,7 +23,7 @@ import java.security.Principal;
 public class WalletController {
 
     @Resource
-    private WalletService walletService;
+    private WalletServiceImpl walletService;
 
 
     @GetMapping("/wallets")

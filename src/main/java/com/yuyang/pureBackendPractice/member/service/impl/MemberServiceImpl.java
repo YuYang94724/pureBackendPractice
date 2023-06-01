@@ -1,4 +1,4 @@
-package com.yuyang.pureBackendPractice.member;
+package com.yuyang.pureBackendPractice.member.service.impl;
 
 import com.yuyang.pureBackendPractice.member.data.dto.MemberLoginResponseDTO;
 import com.yuyang.pureBackendPractice.member.data.enu.MemberLoginType;
@@ -6,9 +6,12 @@ import com.yuyang.pureBackendPractice.member.data.enu.MemberRole;
 import com.yuyang.pureBackendPractice.member.data.enu.MemberStatus;
 import com.yuyang.pureBackendPractice.member.data.po.MemberLoginDocument;
 import com.yuyang.pureBackendPractice.member.data.po.MemberPO;
-import com.yuyang.pureBackendPractice.wallet.WalletRepository;
+import com.yuyang.pureBackendPractice.member.repository.MemberLoginRepository;
+import com.yuyang.pureBackendPractice.member.repository.MemberRepository;
+import com.yuyang.pureBackendPractice.member.service.MemberService;
 import com.yuyang.pureBackendPractice.wallet.data.enu.WalletStatus;
 import com.yuyang.pureBackendPractice.wallet.data.po.WalletPO;
+import com.yuyang.pureBackendPractice.wallet.repository.WalletRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
@@ -26,7 +29,7 @@ import java.math.BigDecimal;
 import java.util.Optional;
 
 @Service
-public class MemberService {
+public class MemberServiceImpl implements MemberService {
 //
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authenticationManager;
@@ -39,7 +42,7 @@ public class MemberService {
     @Value("${custom.avatar.uri}")
     private String avatarUri;
 
-    public MemberService(PasswordEncoder passwordEncoder, WalletRepository walletRepository, AuthenticationManager authenticationManager, MemberRepository memberRepository, MemberLoginRepository memberLoginRepository, StringRedisTemplate stringRedisTemplate, RestTemplate restTemplate) {
+    public MemberServiceImpl(PasswordEncoder passwordEncoder, WalletRepository walletRepository, AuthenticationManager authenticationManager, MemberRepository memberRepository, MemberLoginRepository memberLoginRepository, StringRedisTemplate stringRedisTemplate, RestTemplate restTemplate) {
         this.passwordEncoder = passwordEncoder;
         this.authenticationManager = authenticationManager;
         this.memberRepository = memberRepository;
@@ -49,7 +52,7 @@ public class MemberService {
         this.restTemplate = restTemplate;
     }
 
-    @Scheduled(cron = "* */5 * * * *")
+    @Scheduled(cron = "* * */1 * * *")
     public void fetchRandomAvatarLink() {
         Optional.ofNullable(restTemplate.getForEntity(avatarUri, String.class).getBody())
                 .map(v -> stringRedisTemplate.opsForSet().add("randomAvatarLinks", v));

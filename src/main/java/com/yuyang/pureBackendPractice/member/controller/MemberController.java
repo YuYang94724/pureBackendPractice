@@ -1,6 +1,7 @@
-package com.yuyang.pureBackendPractice.member;
+package com.yuyang.pureBackendPractice.member.controller;
 
 import com.yuyang.pureBackendPractice.comfig.securtiy.JwtTokenService;
+import com.yuyang.pureBackendPractice.member.service.impl.MemberServiceImpl;
 import com.yuyang.pureBackendPractice.member.data.dto.*;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
@@ -24,9 +25,9 @@ import java.util.UUID;
 public class MemberController {
 
     private final JwtTokenService jwtTokenService;
-    private final MemberService memberService;
+    private final MemberServiceImpl memberService;
 
-    public MemberController(JwtTokenService jwtTokenService, MemberService memberService) {
+    public MemberController(JwtTokenService jwtTokenService, MemberServiceImpl memberService) {
         this.jwtTokenService = jwtTokenService;
         this.memberService = memberService;
     }

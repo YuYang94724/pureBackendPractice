@@ -29,7 +29,7 @@ public class WalletTransactionPO implements Serializable {
     private static final long serialVersionUID = -5376084452489538615L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     Long id;
     @Column

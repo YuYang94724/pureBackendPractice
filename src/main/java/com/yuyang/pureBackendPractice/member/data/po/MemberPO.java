@@ -40,6 +40,7 @@ public class MemberPO implements Serializable {
     @Column
     String avatarLink;
 
+    // Enumerated用來指定對應數據庫的資料類型
     // EnumType.STRING比較推薦使用， EnumType.ORDINAL是返回該index(從0開始)的值
     @Enumerated(value = EnumType.STRING)
     @Column

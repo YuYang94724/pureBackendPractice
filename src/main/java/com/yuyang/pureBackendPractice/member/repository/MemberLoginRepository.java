@@ -1,4 +1,4 @@
-package com.yuyang.pureBackendPractice.member;
+package com.yuyang.pureBackendPractice.member.repository;
 
 import com.yuyang.pureBackendPractice.member.data.po.MemberLoginDocument;
 import org.springframework.data.domain.Page;

@@ -4,9 +4,9 @@ spring:
   #    active: arm
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://Localhost:5432/Local_fbedi_db
-    username: epsap
-    password: 111111
+    url: jdbc:postgresql://Localhost:5432/postgres?currentSchema=epssh
+    username: postgres
+    password: 1234
   jpa:
 #    database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
@@ -15,8 +15,8 @@ spring:
     mongodb:
       uri: mongodb://localhost:27017/test
       database: test
-      username: mydatabaseuser
-      password: mydatabasepass
+#      username: mydatabaseuser
+#      password: mydatabasepass
   redis:
     host: localhost
     port: 6379

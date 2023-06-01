@@ -1,6 +1,6 @@
 package com.yuyang.pureBackendPractice.comfig.securtiy;
 
-import com.yuyang.pureBackendPractice.member.MemberRepository;
+import com.yuyang.pureBackendPractice.member.repository.MemberRepository;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;

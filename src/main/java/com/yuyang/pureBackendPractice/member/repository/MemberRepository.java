@@ -1,4 +1,4 @@
-package com.yuyang.pureBackendPractice.member;
+package com.yuyang.pureBackendPractice.member.repository;
 
 import com.yuyang.pureBackendPractice.member.data.po.MemberPO;
 import org.springframework.data.jpa.repository.JpaRepository;

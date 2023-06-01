@@ -1,4 +1,4 @@
-package com.yuyang.pureBackendPractice.wallet;
+package com.yuyang.pureBackendPractice.wallet.repository;
 
 import com.yuyang.pureBackendPractice.wallet.data.po.WalletPO;
 import org.springframework.data.jpa.repository.JpaRepository;
