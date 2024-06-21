@@ -52,7 +52,7 @@ public class MemberServiceImpl implements MemberService {
         this.restTemplate = restTemplate;
     }
 
-    @Scheduled(cron = "* * */1 * * *")
+    @Scheduled(cron = "0 0 */1 * * *")
     public void fetchRandomAvatarLink() {
         Optional.ofNullable(restTemplate.getForEntity(avatarUri, String.class).getBody())
                 .map(v -> stringRedisTemplate.opsForSet().add("randomAvatarLinks", v));
