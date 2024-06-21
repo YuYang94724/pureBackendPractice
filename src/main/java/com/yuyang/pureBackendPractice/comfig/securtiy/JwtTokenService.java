@@ -9,7 +9,8 @@ import java.util.Date;
 import java.util.Optional;
 @Component
 public class JwtTokenService {
-
+    //使用該Key類別也可以
+    //private static final Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
     private final String key = "C874B58E53F97A2B15D0B5848RSJ5432GBSIJL09W5643BHG1E40924FCAF1C19BFA4484A1523704C0AB1F42";
 
     public String generate(String subject, Long ttlMillis, String uuid) {
