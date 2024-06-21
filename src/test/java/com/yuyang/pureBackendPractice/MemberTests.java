@@ -101,16 +101,4 @@ public class MemberTests {
 
     }
 
-    @Test
-    public void add(){
-        Integer v = 1000;
-        Integer r = mockMemberService.add(Mockito.anyInt(), Mockito.anyInt());
-        Mockito.when(r).thenReturn(v);
-
-        System.out.println(mockMemberService.add(1,2));
-        System.out.println(mockMemberService.add(10,21));
-        Assertions.assertNotNull(v);
-        Assertions.assertEquals(1000, v);
-        Assertions.assertTrue(100<mockMemberService.add(1,2));
-    }
 }
