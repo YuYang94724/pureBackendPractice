@@ -22,6 +22,8 @@ spring:
     port: 6379
 #    password: mypassword
     timeout: 5000
+    #可以在不同環境做切換使用e.g. local prd sit來判斷是哪個環境的資料
+    #在存取的key中自動加上如 user:1 -> pureBackendPractice:user:1
     key-prefix: pureBackendPractice
 #    properties:
 #      hibernate:
